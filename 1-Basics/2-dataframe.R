@@ -28,3 +28,9 @@ class(murders$state)
 #categorical data "factor"
 class(murders$region)
 levels(murders$region)
+
+
+#create a dataframe with data.frame
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+city_temps <- data.frame(name = city, temperature = temp)
