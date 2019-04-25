@@ -34,3 +34,4 @@ levels(murders$region)
 temp <- c(35, 88, 42, 84, 81, 30)
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
 city_temps <- data.frame(name = city, temperature = temp)
+#when create a dataframe strings are converted to factor, to avoid this type stringAsFactors = FALSE as last dataframe argument

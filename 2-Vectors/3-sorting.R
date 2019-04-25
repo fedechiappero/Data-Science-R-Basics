@@ -20,5 +20,7 @@ imax <- which.max(murders$total)
 murders$state[imax]
 min(murders$total)
 
-#rank
+#rank (lowest to highest)
 rank(x)
+#highest to lowest
+rank(-x)
