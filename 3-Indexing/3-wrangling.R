@@ -1,5 +1,6 @@
 # introducing DPLYR library
 library(dslabs)
+library(dplyr)
 data(murders)
 
 # MUTATE (adding new row or changing an existing one)
