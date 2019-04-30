@@ -28,7 +28,11 @@ sapply(mylist, "[", 2, 1, simplify = FALSE)
 z <- sapply(mylist, "[", 1, 1)
 rep(z,c(2,5))#1st item times 2, 2nd item times 5
 
-# VAPPLY
+# VAPPLY parameters(list, FUNCTION, value type to return)
+#it apply a function to a list
+#calculate length for our list, value type returned integer
+vapply(mylist,length, 0L)
+# 0 = double | 0L = integer
 
 # MAPPLY
 # stands for multivariate apply, it vectorize arguments to a function that isn't usually accepting vector as arguments
@@ -38,18 +42,39 @@ q1 <- matrix(c(rep(1, 4), rep(2, 4), rep(3, 4), rep(4, 4)),4,4)
 #easily use mapply ot obtain the same result in shorter code
 q2 <- mapply(rep,1:4,4)
 
-# TAPPLY
+# TAPPLY parameters(summary variable, group variable, function)
+#lets see the max population by region
+tapply(murders$population, murders$region, max)
+#mean murders rate by region
+tapply(murders$rate, murders$region, mean)
 
 #others
 
-# SPLIT
+# SPLIT parameters(matrix, group)
+# split a matrix into the group defined
+split(murders, murders$region)
 
-# CUT
+# CUT parameteres(numeric vector to be cuted, numeric vector with break points(values from vector1), labels to separate breaks)
+#breaks must be = labels - 1
+#lets define labels to indicate how safe is each state(0 to 2 = safe, 2 to 4 = OK, 4 to infinite = run away)
+cut(murders$rate, breaks = c(0,2,4, Inf), labels = c("Safe", "OK", "Run away"))
 
 # QUANTILE
 
 # REDUCE
 
 # IDENTICAL
+#test if two objects are exactly equal, return TRUE or FALSE
+identical(1,1L)
+identical(1,1)
+
+m <- function(x,y){
+  ifelse(x>y, x, y)
+}
+identical(m(1,2), max(1,2))
 
 # UNIQUE
+#return a vector with unique values, duplicate ones are removed
+unique(c(1,2,2,3,4,3,2,99,1,2,3,5,6,7,5,8,9,9,9,9))
+#also can be defined a matrix column
+unique(murders[c("region")])
